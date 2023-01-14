@@ -1,61 +1,91 @@
 package hiber.model;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+@Component
 @Entity
 @Table(name = "users")
 public class User {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "carId")
+    private Car car;
 
-   @Column(name = "name")
-   private String firstName;
+    public Car getCar() {
+        return car;
+    }
 
-   @Column(name = "last_name")
-   private String lastName;
+    @Override
+    public String toString() {
+        return "User{" +
+                "car=" + car +
+                ", id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 
-   @Column(name = "email")
-   private String email;
+    public void setCar(Car car) {
+        this.car = car;
+    }
+//    @JoinColumn
+//    private int carId;
 
-   public User() {}
-   
-   public User(String firstName, String lastName, String email) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
-   }
 
-   public Long getId() {
-      return id;
-   }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-   public void setId(Long id) {
-      this.id = id;
-   }
+    @Column(name = "name")
+    private String firstName;
 
-   public String getFirstName() {
-      return firstName;
-   }
+    @Column(name = "last_name")
+    private String lastName;
 
-   public void setFirstName(String firstName) {
-      this.firstName = firstName;
-   }
+    @Column(name = "email")
+    private String email;
 
-   public String getLastName() {
-      return lastName;
-   }
 
-   public void setLastName(String lastName) {
-      this.lastName = lastName;
-   }
+    public User() {
+    }
 
-   public String getEmail() {
-      return email;
-   }
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
-   public void setEmail(String email) {
-      this.email = email;
-   }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
