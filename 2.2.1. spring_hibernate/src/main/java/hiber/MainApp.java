@@ -23,23 +23,7 @@ public class MainApp {
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
         UserService userService = context.getBean(UserService.class);
-//        Car car = context.getBean(Car.class);
-//        car.setModel("Жигули");
-//        car.setSeries(7);
-
-
-//        User userOk =
-////                new User();
-//                context.getBean(User.class);
-//        userOk.setFirstName("User1");
-//        userOk.setLastName("User1");
-//        userOk.setEmail("User1@lkjh");
-//        userOk.setCar(car);
-//
-//        userService.add(userOk);
-
-
-//        List<Car> cars = Arrays.asList(new Car("Тачка", 6),
+//               List<Car> cars = Arrays.asList(new Car("Тачка", 6),
 //                new Car("Тачка4", 8),
 //                new Car("Тачка6", 87),
 //                new Car("Тачка5", 99));
@@ -54,21 +38,11 @@ public class MainApp {
 //            userService.add(users.get(i));
 //        }
 
-//        Stream stream = Stream.concat(cars.stream(), users.stream());
-
-        //
-//        user.setFirstName("User1");
-//        LocalSessionFactoryBean sessionFactoryBean = context.getBean("getSessionFactory",LocalSessionFactoryBean);
-//        HibernateTransactionManager transaction = context.getBean("getTransactionManager",HibernateTransactionManager.class);
-//        Object getSessionFactory = context.getBean("getSessionFactory");
-
-
 //        userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
 //        userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
 //        userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
 //        userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
 //        userService.add(new User("User5", "Lastname5", "user5@mail.ru"));
-
 
         List<User> users2 = userService.listUsers();
         for (User user : users2) {
