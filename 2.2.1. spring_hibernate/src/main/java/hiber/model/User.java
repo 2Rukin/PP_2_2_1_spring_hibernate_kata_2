@@ -3,7 +3,7 @@ package hiber.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-@Component
+
 @Entity
 @Table(name = "users")
 public class User {
